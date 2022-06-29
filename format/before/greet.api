@@ -7,3 +7,14 @@ info(
     email: "type email here"
     version: "type version here"
 )
+
+type User struct{
+    ID int `json:"id"`
+Name string `json:"name"`
+    Age int `json:"age"`
+}
+
+service User {
+    @handler ping
+    get /ping
+}

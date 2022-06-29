@@ -1,20 +1,20 @@
 syntax = "v1"
 
 info(
-    title: "type title here"
-    desc: "type desc here"
-    author: "type author here"
-    email: "type email here"
-    version: "type version here"
+	title: "type title here"
+	desc: "type desc here"
+	author: "type author here"
+	email: "type email here"
+	version: "type version here"
 )
 
-type User struct{
-    ID int `json:"id"`
-Name string `json:"name"`
-    Age int `json:"age"`
+type User {
+	ID   int    `json:"id"`
+	Name string `json:"name"`
+	Age  int    `json:"age"`
 }
 
 service User {
-    @handler ping
-    get /ping
+	@handler ping
+	get /ping
 }
