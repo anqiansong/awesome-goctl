@@ -1,0 +1,44 @@
+syntax = "v1"
+
+info(
+	title: "type title here"
+	desc: "type desc here"
+	author: "type author here"
+	email: "type email here"
+	version: "type version here"
+)
+
+type LoginReq {
+	UserName string `json:"userName"`
+	Password string `json:"password"`
+}
+
+type UserInfoReq {
+	ID string `path:"id"`
+}
+
+type UserDetailReq {
+	ID   string `form:"id"`
+	Name string `form:"name"`
+}
+
+type UserHeader {
+	Authorization string `header:"Authorization"`
+}
+
+service user {
+	@handler Login
+	post /user/login (LoginReq)
+	
+	@handler UserInfo
+	get /user/info/:id (UserInfoReq)
+	
+	@handler GetUserDetail
+	get /user/detail (UserDetailReq)
+	
+	@handler PostUserDetail
+	post /user/detail (UserDetailReq)
+	
+	@handler GetHeader
+	get /ping
+}
