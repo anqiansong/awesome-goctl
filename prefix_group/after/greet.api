@@ -1,0 +1,30 @@
+syntax = "v1"
+
+info(
+	title: "type title here"
+	desc: "type desc here"
+	author: "type author here"
+	email: "type email here"
+	version: "type version here"
+)
+
+type LoginReq{}
+type LoginResp{}
+
+@server (
+	prefix: /v1
+	group: ping
+)
+service greet {
+	@handler ping
+	get /ping
+}
+
+@server(
+	prefix: /v1
+	group: login
+)
+service greet {
+	@handler login
+	get /user/login (LoginReq) returns (LoginResp)
+}
