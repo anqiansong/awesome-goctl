@@ -1,0 +1,45 @@
+syntax = "v1"
+
+info(
+    Title: "type title here"
+    Desc: "type desc here"
+    Author: "type author here"
+    Email: "type email here"
+    Version: "type version here"
+)
+
+type (
+    LoginResp {
+        token string `json:"token"`
+        uid string `json:"uid"`
+    }
+
+    LoginReq {
+        username string `json:"username"`
+        password string `json:"password"`
+    }
+
+    UserInfoReq {
+        uid string `path:"uid"`
+    }
+
+    UserInfoResp {
+        uid string `path:"uid"`
+        name string `json:"name"`
+        email string `json:"email"`
+    }
+)
+
+
+service User {
+    @doc "用户登录"
+    @handler login
+    post /user/login (LoginReq) returns (LoginResp)
+
+    @doc "获取用户信息"
+    @handler userinfo
+    get /user/info (UserInfoReq) returns (UserInfoResp)
+}
+
+
+
