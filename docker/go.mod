@@ -1,4 +1,4 @@
-module before
+module docker
 
 go 1.18
 

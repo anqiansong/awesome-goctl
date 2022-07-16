@@ -1,0 +1,10 @@
+syntax = "v1"
+
+type PingResp {
+	Msg string `json:"msg"`
+}
+
+service greet-api {
+	@handler ping
+	get /greet/ping returns (PingResp)
+}
